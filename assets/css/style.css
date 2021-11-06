@@ -1,0 +1,535 @@
+/* Các cách xét 1 trang web:
+1. từ ngoài vòa trong
+2. từ trên xuống đưới 
+3. tổng quan đến chi tiết
+*/
+/*	
+1. vị trí 
+2. kích thước 
+3. màu sắc 
+4. kiểu dáng ( kiểu chữ , hình tròn , hình vuông ..)
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.text-white{
+    color: white !important;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.clear{
+    clear: both;
+}
+
+.mt-8{
+    margin-top: 8px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+
+/* khởi tạo chiều ngang */
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* khởi tạo chiều dọc */
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* khởi tạo chiều dọc cho 3 cột */
+.col-3{
+    width: 33.33333%;
+}
+
+/* khởi tạo chiều dọc cho 2 cột */
+.col-2{
+    width: 50%;
+}
+
+.col-full{
+    width: 100%;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main{
+
+}
+
+/* Header */
+#header{
+    height: 46px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* tăng độ dày để trồi lên tất cả */
+    z-index: 1;
+}
+
+#nav, .subnav{
+    list-style-type: none;
+}
+
+#nav{
+    /* dùng để chữ đến đâu thì kích thước chỉ đến đó */
+    display: inline-block;
+}
+
+#nav > li{
+    /* dùng để cho 1 hàng ngang */
+    display: inline-block;
+}
+
+#nav li{
+    position: relative;
+}
+
+#nav > li > a{
+    color: white;
+    text-transform: uppercase;
+}
+
+#nav li a{
+    text-decoration: none;
+    line-height: 46px;
+    padding: 0 20px;
+    display: block;
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav .subnav li:hover a,
+#nav > li:hover > a{
+    color: black;
+    background-color: #ccc;
+}
+
+#nav .subnav{
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 5px;
+    display: none;
+}
+
+#nav .subnav a{
+    color: black;
+    padding: 0 10px;
+    line-height: 38px;
+}
+
+#nav .iconxuong{
+    font-size: 16px;
+}
+
+#header .search {
+    font-size: 20px;
+    color: #ccc;
+    float: right;
+    line-height: 46px;
+    padding: 0 17px;
+}
+
+#header .search:hover{
+    cursor: pointer;  
+    background-color: red;
+}
+
+#slider{
+    position: relative;
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url(../img/meme/vayne.jpg) top center / cover no-repeat ;
+}
+
+#slider .text-content{
+    position: absolute;
+    bottom: 48px;
+    color: rgb(252, 249, 251);
+    text-align: center;
+    /* có nhiều cách căn giữa như:
+    transform:translateX(-50%);
+    left: 50%; 
+    hoặc 
+    left: 0;
+    right: 0;
+    hoặc cách đang làm: width: 100%
+    */
+    width: 100%;
+}
+
+#slider .text-heading{
+    color: rgb(235, 109, 36);
+    font-weight: 500px;
+    font-size: 27px;
+}
+
+#slider .text-mid{
+    color: rgb(235, 109, 36);
+    margin-top: 20px;
+    font-weight: 500px;
+    font-size: 20px;
+}
+
+/* Content */
+#content{
+    
+}
+
+#content .mucchung{
+    width: 800px;
+    max-width: 100%;
+    padding: 64px 0; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content .mucchung .tenmuc{
+    font-size: 30px;
+    font-weight: 500px;
+    text-align: center;
+    /* chữ cách chữ */
+    letter-spacing: 8px;
+}
+
+#content .mucchung .sologan{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px ;
+    /* làm mờ chữ */
+    opacity: 0.5;
+    /* in nghiêng */
+    font-style: italic;
+}
+
+#content .mucchung .text-About{
+    font-size: 15px;
+    margin-top: 20px;
+    /* căn giữa đầu đít = nhau */
+    text-align: justify;
+    line-height: 1.4;
+}
+
+/* About-img */
+#content .member-list{
+    padding-top: 48px;
+}
+
+#content .member-name{
+    font-size: 15px;
+}
+
+#content .member-avatar{
+    padding: 15px;
+    width: 160px;
+    border-radius: 30px;
+}
+
+#content .member-avatar:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/* Tour-Section */
+#content .tour-Section{
+    background-color: black;
+}
+
+#content .list-ticket{
+    background-color: white;
+    margin-top: 40px;
+}
+
+#content .list-ticket li{
+    color: #757575;
+    font-size: 15px;
+    padding: 13px 15px;
+    /* tạo đường gạch ngang */
+    border-bottom: 1px solid #ccc;
+    list-style: none;
+}
+
+#content .list-ticket .sout-out{
+    background-color: red;
+    color: white;
+    padding: 4px 5px;
+    margin-left: 16px;
+}
+
+#content .list-ticket .soluong{
+    float: right;
+    width: 24px;
+    background: black;
+    color: white;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-top: -4px;
+}
+
+/* Địa điểm */
+.diadiem-list{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.diadiem-img{
+    width: 100%;
+    display: block;
+}
+
+.diadiem-img:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.diadiem-content{
+    background-color: white;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.diadiem-heading{
+    font-size: 15px;
+    font-weight: 400px;
+    margin-top: 15px;
+}
+
+.diadiem-time{
+    opacity: 0.5;
+    margin-top: 15px;
+}
+
+.diadiem-text{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover{
+    background-color: #ccc;
+    color: #000;
+}
+
+/* Contact */
+.contact-content{
+    margin-top: 48px;
+}
+
+.contact-text{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.contact-icon{
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-input{
+    font-size: 15px;
+}
+
+.contact-form{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.btn-submit{
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    float: right;
+    border-radius: 20px;
+}
+
+.btn-submit:hover{
+    background-color: #ccc;
+    color: black;
+    cursor: pointer;
+}
+
+/* map */
+.map-section img{   
+    width: 100%;
+    
+}
+
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .footer-body{
+    font-size: 24px;
+}
+
+#footer .footer-body a{  
+    text-decoration: none;
+}
+#footer .banquyen a:hover,
+#footer .footer-body a:hover{
+    opacity: 0.4;
+}
+
+#footer .banquyen{
+    padding: 15px;
+    font-size: 20px;
+}
+
+#footer .banquyen a{
+    color: royalblue;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+/* đoạn này dùng js nên không dùng dấu cách mà .ngay luôn */
+.modal.open{
+    display: flex;
+}
+
+.modal-container{
+    background-color: white;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalDivao ease 0.6s;
+}
+
+.modal-close{
+    position: absolute;
+    right:0;
+    line-height: 18px;
+    padding: 10px;
+}
+
+.modal-close:hover{
+    color: black;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.modal-header{
+    padding: 26px 16px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 4px;
+    background-color: rgb(55, 58, 224);
+    color: white;
+}
+
+.modal-body{
+    padding: 16px;
+}
+
+.modal-label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.modal-input{
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.modal-pay{
+    display: block;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color:rgb(55, 58, 224);
+    border: 1px solid #ccc;
+    font-weight: 400px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.modal-pay:hover{
+    background-color: rgb(179, 67, 67);
+    color: black;
+}
+
+.modal-help{
+    float: right;
+    padding: 16px;
+}
+
+.modal-help a{
+    color: rgb(57, 160, 201);
+}
+
+/* của phần javascrip */
+@keyframes modalDivao{
+    from{
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
