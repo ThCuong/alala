@@ -36,6 +36,10 @@
     margin-top: 16px !important;
 }
 
+.mt-32{
+    margin-top: 32px !important;
+}
+
 
 /* khởi tạo chiều ngang */
 .row{
@@ -151,12 +155,24 @@ html{
     font-size: 16px;
 }
 
+#header .mobile-menu-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+#header .mobile-menu-btn,
 #header .search {
     font-size: 20px;
     color: #ccc;
     float: right;
     line-height: 46px;
     padding: 0 17px;
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
 }
 
 #header .search:hover{
@@ -227,7 +243,7 @@ html{
     font-size: 15px;
     text-align: center;
     margin-top: 20px ;
-    /* làm mờ chữ */
+    /* làm mờ */
     opacity: 0.5;
     /* in nghiêng */
     font-style: italic;
@@ -243,7 +259,7 @@ html{
 
 /* About-img */
 #content .member-list{
-    padding-top: 48px;
+    padding-top: 32px;
 }
 
 #content .member-name{
@@ -301,7 +317,7 @@ html{
 
 /* Địa điểm */
 .diadiem-list{
-    margin-top: 32px;
+    margin-top: 16px;
     margin-bottom: 32px;
 }
 
